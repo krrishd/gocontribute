@@ -1,0 +1,23 @@
+<h1>What is goContribute?</h1>
+<p>Ever wish that your GitHub profile was a bit more reputable? Interested in contributing to the top 100 repositories of your language of preference?</p>
+<p>goContribute is a tool that, based upon your preference of repositories' stars, activity, contributor base, and amount of issues, will give you the top 10 repositories that would be perfect for you to contribute to.</p>
+<h1>Choose your language of preference.</h1>
+<select ng-model="lang">
+	<option ng-repeat="language in languages">{{ language }}</option>
+</select>
+<h1>Denote the percentage of importance of each factor.</h1>
+<form>
+	<div class="input">
+		<input type="text" ng-model="stars" placeholder="Stars"><label class="animated fadeInRight">%</label>
+	</div>
+	<div class="input">
+		<input type="text" ng-model="activity" placeholder="Activity"><label class="animated fadeInRight">%</label>
+	</div>
+	<div class="input">
+		<input type="text" ng-model="contributors" placeholder="Contributors"><label class="animated fadeInRight">%</label>
+	</div>
+	<div class="input">
+		<input type="text" ng-model="issues" placeholder="Issues"><label class="animated fadeInRight">%</label>
+	</div>
+</form>
+<a class="btn" ng-href="/top/{{ lang }}/{{ stars/100 }}/{{ activity/100 }}/{{ contributors/100 }}/{{ issues/100 }}">Next</a>

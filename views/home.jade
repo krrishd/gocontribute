@@ -1,0 +1,23 @@
+doctype html
+html(ng-app="goContribute", ng-controller="mainCtrl")
+	head
+		title(ng-bind="title") goContribute - Find the best open source projects to contribute to.
+		link(href="/main.css", type="text/css", rel="stylesheet")
+		script(src="/lib/angular/angular.min.js")
+		script(src="/lib/angular-ui-router/release/angular-ui-router.min.js")
+		script(src="/app.js")
+		meta(name="viewport", content="initial-scale=1")
+	body
+		div(class="loading", ng-show="loading")
+			img(src="/loading.GIF")
+			h1 Calculating top repositories...
+		header
+			a(href='/')
+				h1 
+					i.fa.fa-github
+					| goContribute
+		.content
+			ui-view
+		footer
+			p
+				| &copy; 2014 Krish Dholakiya. All Rights Reserved.

@@ -1,0 +1,27 @@
+{
+  "name": "goContribute",
+  "version": "0.0.0",
+  "description": "An app that allows you to find the best repositories on Github to contribute to, based on your language preferences in addition to an algorithm that takes into account the amount of activity, popularity, the tendency to accept contribution, as well as the need for contribution of repositories.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/krrishd/goContribute"
+  },
+  "author": "Krish Dholakiya <krishna.dholakiya@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krrishd/goContribute/issues"
+  },
+  "homepage": "https://github.com/krrishd/goContribute",
+  "dependencies": {
+    "express": "^3.5.3",
+    "harp": "^0.12.1",
+    "jStat": "0.0.3",
+    "jade": "^1.5.0",
+    "needle": "^0.7.2",
+    "path": "^0.4.9"
+  }
+}
