@@ -3,7 +3,9 @@
 		<h1>{{ repo.name }}</h1>
 		<h2>
 			<span>{{ round(repo.score) }}</span>
-			<i class="fa fa-info-circle score" ng-mouseover="info(true)" ng-mouseout="info(false)"></i>
+			<a href="/about">
+				<i class="fa fa-info-circle score" ng-mouseover="info(true)" ng-mouseout="info(false)"></i>
+			</a>
 		</h2>
 		<div class="links">
 			<a class="item" ng-href="{{ repo.url }}">GitHub</a>

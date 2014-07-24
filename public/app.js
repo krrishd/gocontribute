@@ -1,10 +1,10 @@
-var app = angular.module('goContribute', ['ui.router', 'gist']);
+var app = angular.module('goContribute', ['ui.router', 'gist', 'hc.marked']);
 
 app.config(function($stateProvider, $locationProvider) {
 	$stateProvider
 		.state('about', {
 			templateUrl: '/views/about.html',
-			controller: mainCtrl,
+			controller: aboutCtrl,
 			url: '/about'
 		})
 		.state('choose', {
@@ -36,6 +36,16 @@ function mainCtrl($scope, $http, $rootScope) {
 			$rootScope.loading = false;
 		});
 };
+
+function aboutCtrl($scope, $rootScope, $http) {
+	$rootScope.loading = true;
+	$rootScope.title = 'goContribute - About'
+	$http.get('https://cdn.rawgit.com/krrishd/59503c11673f06e97e9c/raw/abf3278d87182beb171af772ab1048a4bdc37849/how-gocontribute-works.markdown')
+		.success(function(data) {
+			$scope.article = data;
+			$rootScope.loading = false;
+		});
+}
 
 function listCtrl($scope, $http, $rootScope, $stateParams) {
 	$scope.infoHover = false;
