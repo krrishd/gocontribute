@@ -2,6 +2,11 @@ var app = angular.module('goContribute', ['ui.router']);
 
 app.config(function($stateProvider, $locationProvider) {
 	$stateProvider
+		.state('about', {
+			templateUrl: '/views/about.html',
+			controller: mainCtrl,
+			url: '/about'
+		})
 		.state('choose', {
 			templateUrl: '/views/choose.html',
 			controller: mainCtrl,
