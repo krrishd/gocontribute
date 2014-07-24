@@ -1,4 +1,4 @@
-var app = angular.module('goContribute', ['ui.router']);
+var app = angular.module('goContribute', ['ui.router', 'gist']);
 
 app.config(function($stateProvider, $locationProvider) {
 	$stateProvider
