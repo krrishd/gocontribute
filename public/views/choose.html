@@ -20,4 +20,4 @@
 		<input type="text" ng-model="issues" placeholder="Issues"><label class="animated fadeInRight">%</label>
 	</div>
 </form>
-<a class="btn" ng-href="/top/{{ lang.replace(' ', '-') }}/{{ stars/100 }}/{{ activity/100 }}/{{ contributors/100 }}/{{ issues/100 }}">Next</a>
+<a class="btn" ng-href="/top/{{ lang.replace(' ', '-') }}/{{ stars/100 || .1 }}/{{ activity/100 || .2 }}/{{ contributors/100 || .4  }}/{{ issues/100 || .3 }}">Next</a>
