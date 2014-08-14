@@ -1,7 +1,7 @@
 var get = require('./get');
 var process = require('./process');
 
-var router = function(express, harp, port) {	
+var router = function(express, harp, port) {
         var app = express();
 
 	app.configure(function() {
@@ -27,30 +27,40 @@ var router = function(express, harp, port) {
   			return 0;
 	};
 	app.get('/api/lang/:language/:lim', function(req, res) {
-		
+
 		get(req.params.language, function(data) {
-			var end = process(data);
-			end = end.sort(compare);
-			end = end.slice(0,(req.params.lim - 1));
-			res.json(end);
+      function returnData(cb) {
+			     var end = process(data);
+			     end = end.sort(compare);
+			     end = end.slice(0,(req.params.lim - 1));
+           cb(end);
+      }
+      returnData(function(end) {
+        res.json(end);
+      });
 		});
 	});
 
 	app.get('/api/custom/:language/:stars/:activity/:contributors/:issues', function(req, res) {
 		get(req.params.language, function(data) {
-			var custom = {
-				stars: req.params.stars,
-				issues: req.params.issues,
-				contributors: req.params.contributors,
-				activity: req.params.activity
-			};
-			var end = process(data, custom);
-			end.sort(compare);
-			end = end.slice(0,9);
-			res.json(end)
+      function returnData(cb) {
+			     var custom = {
+				         stars: req.params.stars,
+				         issues: req.params.issues,
+				         contributors: req.params.contributors,
+				         activity: req.params.activity
+			      };
+			      var end = process(data, custom);
+			      end.sort(compare);
+			      end = end.slice(0,9);
+			      cb(end);
+      }
+      returnData(function(end){
+        res.json(end);
+      });
 		});
 	});
-	
+
 	app.get('*', function(req, res) {
 		res.render('home');
 	});
