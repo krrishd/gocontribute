@@ -13,7 +13,7 @@ function getRepoByLang(language, callback) {
 				getData();
 			});
 		} else {
-			return callback(raw_data);
+			return new callback(raw_data);
 		}
 	}
 	getData();
